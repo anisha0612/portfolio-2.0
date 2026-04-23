@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+:root {
+	font-family: "Avenir Next", "Segoe UI", sans-serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	--page-background: #f8f8f5;
+	--surface: #ffffff;
+	--surface-soft: #fbfaf7;
+	--surface-accent: #f3f1eb;
+	--accent: #f8bf3c;
+	--accent-strong: #ffc94f;
+	--accent-soft: #fff8e2;
+	--ink: #1e1d1b;
+	--ink-soft: #706d66;
+	--line: rgba(30, 29, 27, 0.1);
+	--line-strong: rgba(30, 29, 27, 0.22);
+	--line-soft: rgba(30, 29, 27, 0.08);
+	--shadow-card: 0 18px 40px rgba(30, 29, 27, 0.04);
+	--shadow-button: 0 16px 34px rgba(30, 29, 27, 0.12);
+	--shadow-button-soft: 0 10px 24px rgba(30, 29, 27, 0.06);
+	--shadow-icon: 0 12px 24px rgba(30, 29, 27, 0.08);
+	--focus-ring: rgba(71, 85, 105, 0.35);
+	--field-ring: 0 0 0 3px rgba(248, 191, 60, 0.18);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	@apply scroll-smooth;
+}
+
+body {
+	@apply m-0 min-w-80 min-h-screen;
+	background: var(--page-background);
+	color: var(--ink);
+	font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+button,
+input,
+textarea {
+	font: inherit;
+}
+
+.app-shell {
+	@apply relative;
+	background: radial-gradient(circle at 100% 0%, rgba(248, 191, 60, 0.08), transparent 22%),
+		linear-gradient(180deg, #f8f8f5 0%, #f7f7f4 100%);
+}
+
+.content-shell {
+	@apply mx-auto grid gap-8 pb-0 min-[700px]:gap-12;
+	width: min(1120px, calc(100vw - 32px));
+}
+
+.surface-section {
+	@apply rounded-3xl bg-white px-6 py-8 min-[700px]:px-10 min-[700px]:py-10;
+}
+
+.section-title {
+	@apply m-0 font-bold tracking-[-0.05em];
+	font-family: Georgia, "Times New Roman", serif;
+	color: var(--ink);
+}
+
+.section-copy {
+	@apply m-0 leading-[1.8];
+	color: var(--ink-soft);
+}
+
+.panel-card {
+	@apply border bg-white;
+	border-color: var(--line);
+	box-shadow: var(--shadow-card);
+}
+
+.info-card-grid {
+	@apply grid auto-rows-fr gap-3;
+}
+
+.info-card {
+	@apply flex h-full rounded-2xl px-4 py-4;
+}
+
+.info-card-title {
+	@apply block text-[0.84rem] font-semibold leading-[1.35] break-words;
+	color: #1e1d1b;
+}
+
+.info-card-meta {
+	@apply mt-1 block text-[0.58rem] font-bold uppercase tracking-[0.14em];
+	color: rgba(30, 29, 27, 0.42);
+}
+
+.pill-label {
+	@apply inline-flex rounded-full border px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.12em];
+	border-color: var(--line-soft);
+	color: rgba(30, 29, 27, 0.48);
+}
+
+.button-primary {
+	@apply inline-flex min-h-8 w-fit items-center justify-center rounded-[0.45rem] border px-3.5 text-[0.68rem] font-bold tracking-[0.02em] no-underline transition duration-150;
+	border-color: rgba(30, 29, 27, 0.14);
+	background: var(--accent);
+	color: var(--ink);
+
+	&:hover {
+		@apply -translate-y-px;
+		border-color: var(--line-strong);
+		background: var(--accent-strong);
+		box-shadow: var(--shadow-button);
+	}
+
+	&:focus-visible {
+		@apply outline-2 outline-offset-2;
+		outline-color: var(--focus-ring);
+	}
+}
+
+.button-secondary {
+	@apply inline-flex min-h-8 w-fit items-center justify-center rounded-[0.45rem] border px-3.5 text-[0.68rem] font-bold tracking-[0.02em] no-underline transition duration-150;
+	border-color: rgba(30, 29, 27, 0.14);
+	background: var(--surface);
+	color: var(--ink);
+
+	&:hover {
+		@apply -translate-y-px;
+		border-color: var(--line-strong);
+		background: #faf9f6;
+		box-shadow: var(--shadow-button-soft);
+	}
+
+	&:focus-visible {
+		@apply outline-2 outline-offset-2;
+		outline-color: var(--focus-ring);
+	}
+}
+
+.icon-button {
+	@apply inline-flex h-8 w-8 items-center justify-center rounded-[0.35rem] border bg-white transition duration-150;
+	border-color: var(--line);
+	color: var(--ink);
+
+	&:hover {
+		@apply -translate-y-px;
+		border-color: var(--line-strong);
+		background: var(--accent-soft);
+		box-shadow: var(--shadow-icon);
+	}
+}
+
+.form-field {
+	@apply w-full border px-[0.85rem] py-3 text-[0.82rem] outline-none transition duration-150;
+	border-color: var(--line-soft);
+	background: var(--surface-soft);
+	color: var(--ink);
+
+	&::placeholder {
+		color: rgba(112, 109, 102, 0.8);
+	}
+
+	&:focus {
+		border-color: rgba(239, 168, 0, 0.6);
+		box-shadow: var(--field-ring);
+	}
+}
